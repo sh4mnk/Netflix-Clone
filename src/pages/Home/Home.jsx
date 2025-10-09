@@ -8,14 +8,15 @@ import info_icon from '../../assets/info_icon.png'
 import TitleCards from '../../components/TitleCards/TitleCards'
 import Footer from '../../components/Footer/Footer'
 
+
 const Home = () => {
   return (
     <div className='home'>
       <Navbar />
       <div className='hero'>
-        <img src={hero_banner} alt="" className='banner-img'/>
+        <img src={hero_banner} alt="" className='banner-img' />
         <div className="hero-caption">
-          <img src={hero_title} alt="" className='caption-img'/>
+          <img src={hero_title} alt="" className='caption-img' />
           <p>Dicscovering his ties to a secret ancient order, a young manliving in modern istanbul embarks a quest to save the city from an immortal enemy.</p>
           <div className="hero-btns">
             <button className='btn'><img src={play_icon} alt="" />Play</button>
@@ -25,10 +26,10 @@ const Home = () => {
         </div>
       </div>
       <div className="more-cards">
-        <TitleCards title={"Blockbuster Movies"}/>
-        <TitleCards title={"Only on Netflix"}/>
-        <TitleCards title={"Upcoming"}/>
-        <TitleCards title={"Top Pics for You"}/>
+        <TitleCards title={"Blockbuster Movies"} />
+        <TitleCards title={"Only on Netflix"} />
+        <TitleCards title={"Upcoming"} />
+        <TitleCards title={"Top Pics for You"} />
       </div>
       <Footer />
     </div>
