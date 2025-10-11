@@ -1,4 +1,4 @@
-.footer{
+.Footer{
     padding: 30px 4%;
     max-width: 1000px;
     margin: 0 auto;
@@ -11,4 +11,15 @@
 .footer-icons img{
     width: 30px;
     cursor: pointer;
+}
+.Footer ul{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 15px;
+    margin-bottom: 30px;
+    list-style: none;
+}
+.copyright-text{
+    font-size: 14px;
+    color: #6d6d6d;
 }
