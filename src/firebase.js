@@ -4,6 +4,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBWWMyHIXtJlxMzAn-w9I8iWPtJfveP8dQ",
@@ -22,7 +23,7 @@ const db = getFirestore(app);
 
 const signup = async (name, email, password) => {
     try {
-        const res = auth.createUserWithEmailAndPassword(auth, email, password);
+        const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
          await addDoc(collection(db, "user"), {
             uid: user.uid,
@@ -32,7 +33,7 @@ const signup = async (name, email, password) => {
         })
     } catch (error) {
        console.log(error);
-       alert(error);
+       toast.error(error.code.split('/')[1].split('-').join(' '));
        
     }
 }
@@ -42,13 +43,13 @@ const login = async (email, password) => {
        await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
          console.log(error);
-         alert(error);
+         toast.error(error.code.split('/')[1].split('-').join(' '));
     }
 }
 
 
 const logout = () => {
-    auth.signOut(auth);
+    signOut(auth);
 }
 
 export { auth, db, signup, login, logout };
