@@ -13,20 +13,22 @@ const Navbar = () => {
 
 
 
-  //This is for changing navbar background on scroll(like sticky navbar)
   const navRef = useRef();
+
+
+  //This is for changing navbar background on scroll(like sticky navbar)
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 80) {
-        navRef.current.classList.add('nav-dark')
+        navRef.current?.classList.add('navbar-dark')
       } else {
-        navRef.current.classList.remove('nav-dark')
+        navRef.current?.classList.remove('navbar-dark')
       }
     })
   }, [])
 
   return (
-    <div className='navbar'>
+    <div className='navbar' ref={navRef}>
       <div className="navbar-left">
         <img src={logo} alt="" />
         <ul>

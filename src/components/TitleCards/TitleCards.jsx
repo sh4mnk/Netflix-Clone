@@ -29,7 +29,7 @@ const TitleCards = ({ title, category }) => {
 
   useEffect(() => {
 
-    fetch(`https://api.themoviedb.org/3/movie/${category ? category:"now_playing"}?language=en-US&page=1`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
       .then(response => response.json())
       .then(response => setApiData(response.results || []))
       .catch(err => console.error(err));
@@ -46,7 +46,7 @@ const TitleCards = ({ title, category }) => {
       <div className='card-list' ref={CardRef}>
         {apiData.map((card, index) => {
           return <Link to={`/player/${card.id}`} className="card" key={index}>
-            <img src={`https://image.tmdb.org/t/p/w500/`+card.backdrop_path} alt="" />
+            <img src={`https://image.tmdb.org/t/p/w500/` + card.backdrop_path} alt="" />
             <p>{card.original_title || 'No Title'}</p>
           </Link>
         })}
